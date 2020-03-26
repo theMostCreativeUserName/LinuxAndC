@@ -33,7 +33,7 @@ to reuse files:
     - write a function prototype
     - compile files to an objectfile
     - compile all of them together
-        Process:
+        Process: (=dependency-Tree)
                 d.c     gd.c
                  |       |      (clang -c d.c
                  V       V        clang -c gd.c)
@@ -45,3 +45,7 @@ to reuse files:
     - write h files
         -> .h only includes FunctionPortotypes, defines, includes
       and include these
+
+    OR
+    makeFiles -- see the makeFile in geom-Folder
+    every call of make compiles only the things that change
