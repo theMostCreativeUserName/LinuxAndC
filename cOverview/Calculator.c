@@ -14,19 +14,23 @@ int main()
     printf("Enter second number: ");
     scanf("%lf", &num2);
 
-    if(op == '+'){
-        answ = num1 + num2;
-    }else if(op == '-'){
-        answ = num1-num2;
-    }else if(op == '/'){
-        answ = num1/num2;
-    }else if(op == '*'){
-        answ = num1*num2;
-    }else{
-        printf("Invalid Operator\n");
+    switch(op){
+        case '+':
+            answ = num1 + num2;
+            break;
+        case '-':
+            answ = num1-num2;
+            break;
+        case '/':
+            answ = num1/num2;
+            break;
+        case '*':
+            answ = num1*num2;
+            break;
+        default: printf("Invalid Operator");
     }
+
     printf("%f\n", answ);
-    //printf("%f %c %f = %f", num1,op, num2 , answ);
     return 0;
 
 }
