@@ -1,0 +1,44 @@
+C-Make Tutorials:
+
+to use math lib in code it has to be named in command prompt
+        -l m
+
+Automating builds in MakeFiles
+Structure:
+
+    .c (source file)
+            |  Preprocessor: handles #include, define & strips out comments
+            V
+    "processed file" (copies imports into file itself)
+            |   Compiler:   translate c to assembly)
+            V
+        .s - file
+            |   assembler:  translates assembly to object file
+            V
+        .o - file
+            |   linker:     brings together the object file to produce executable
+            V
+           exec
+BIOS - Commands:
+    - run Preprocessor: -E
+    - run Compiler:     -S
+    - run assembler:    -c
+    - to output exec:   -o
+    (commands always run from .c to the step anounced)
+
+to reuse files:
+    - include all files sepperately
+
+    OR
+    - write a function prototype
+    - compile files to an objectfile
+    - compile all of them together
+        Process:
+                d.c     gd.c
+                 |       |      (clang -c d.c
+                 V       V        clang -c gd.c)
+                d.o     gd.o
+                 \        /     (clang d,o gd,o -o complete -l m)
+                  V      V
+                  complete
+        
