@@ -41,4 +41,7 @@ to reuse files:
                  \        /     (clang d,o gd,o -o complete -l m)
                   V      V
                   complete
-        
+    OR
+    - write h files
+        -> .h only includes FunctionPortotypes, defines, includes
+      and include these
