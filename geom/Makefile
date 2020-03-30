@@ -30,7 +30,7 @@ tip: tip.o gd.o
 	$(FC) tip.o gd.o -o tip
 
 # removes everything except SourceFiles
-clean:
+clear:
 	rm *.o tip distance
 
 rebuild: clean all

@@ -9,5 +9,5 @@ madlib: madLib.c
 var: var.c
 	clang var.c -o var
 
-clean:
+clear:
 	rm *.o calculator madlib  var

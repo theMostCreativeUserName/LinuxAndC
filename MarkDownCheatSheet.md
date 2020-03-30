@@ -26,7 +26,7 @@ _Italic_ using \_format_
 
 ##### Bolds:
 
-There are two options to format a sentence as bolds: **bold** using \*\*format** and
+There are two options to format a sentence as bold: **bold** using \*\*format** and
 __bold__ using \_\_format__
 
 
@@ -42,7 +42,7 @@ use either "---" or "___" in an empty text line.
 
 ---
 #### Block Quotes
-> Block quotes are created using the chrackter '>' at the beginning of a paragraph
+> Block quotes are created using the character '>' at the beginning of a paragraph
 
 An empty text line breaks out of the quote.
 
@@ -62,7 +62,7 @@ To create an unordered Lists
     * Nested list item 1
     * Nested list item 2
 
-the '*' charackter is used at the beginning of each line.
+the '*' character is used at the beginning of each line.
 
 \* List item 1
 
