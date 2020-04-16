@@ -1,0 +1,86 @@
+JQ .json
+
+What is json?
+= JavaScript Object Notation (http://json.org)
+
+Values:
+  String (in double quotes), Number, Boolean, Null, Array; object
+syntax:
+  uses key/value pairs - {"name":"Brad"}
+  double quotes around key and value
+  example:
+      {
+        "name": "Sauron",
+        "age": 30,
+        "address": {
+            "street":"DeathMountain",
+            "city":"Mordor"
+        },
+        "favourite color":["yellow", "red"]
+      }
+  json and objects can be parsed into each Other
+    person = JSON.stringify(person) --> converts into JSON
+    person = JSON.parse(person) --> other way around
+
+Introduction:
+  JQ = lightweight command-line JSON processor
+
+  Modes of Operation
+    1. JSON filters to json
+    2. JSON filters to plain text
+
+--------------------------------------------------------------------------------------
+  command line
+    jq [options] filter [file ... ]
+    (jqplay.org to test out stuff)
+
+  Filters:
+  every JQ expression is a filter
+  Constant: --> input and Output are the same
+  Functions:
+  extracting values from input
+    '.' is identity operator and means all the input
+      eg: Array [ 13, 24, 86, 99]
+          .[2]        // read out
+          output: 86
+
+          .[0:2]      //slice
+          output: [13, 24, 86]
+
+          .[1+2]
+          op: 99
+
+      eg.: Extracting value from objects
+          { "a": 86, "b": 99}
+          .["a"] // or short : .a // only for Objects
+          op: 86
+      if whatever you search does not exist JQ returns null
+
+  More Complex Processing
+    (Pipelines and Lists)
+    Pipelines:
+      input --> filter1 | filter2 | filtern--> Output
+      input is parsed through multiple filters one after another
+    LIsts:
+      input --< filter1, filter2, ... --> Output
+        input send to each file in parallel
+        produces one list per filter (input & output are lists)
+      lists are not valid input, but arrays
+      have to be converted to lists with .[]
+        this also works for objects ( --> returns list of values)
+        to get keys: function keys() is used
+
+        // breaking out an array returns a list
+
+    Other jq Tricks:
+      make changes on the fly
+      eg {"a": 85, "name": "max"}
+          .org = "Control" | .name |= ascii_upcase --> {"a": 85, "name": "MAX", "org": "Control"}
+      holding variables
+        syntax: filter as $varname
+        var is then available to all filters following the Pipelines
+      Controllstructures (pipeline Opereators)
+       if ()
+       then expr. else expr.
+      Interpolation of Strings
+        "\(.x)"
